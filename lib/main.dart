@@ -4,18 +4,19 @@ import 'package:movies_app/movies/domain/entities/movie.dart';
 void main() {
   Movie movie1 = const Movie(
       id: 1,
-      backgroundImage: 'backgroundImage',
+      backdropPath: 'backgroundImage',
       title: 'title',
       overview: 'overview',
       genreIds: [0],
+      releaseDate: '2020',
       voteAverage: 2.5);
-
   Movie movie2 = const Movie(
       id: 1,
-      backgroundImage: 'backgroundImage',
+      backdropPath: 'backgroundImage',
       title: 'title',
       overview: 'overview',
       genreIds: [0],
+      releaseDate: '2020',
       voteAverage: 2.5);
 
   print(movie1 == movie2);
