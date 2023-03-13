@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_app/core/Errors/exceptions.dart';
-import 'package:movies_app/core/failure/failure.dart';
+import 'package:movies_app/core/Errors/failure.dart';
 import 'package:movies_app/movies/data/data_source/movie_remote_data_source.dart';
 import 'package:movies_app/movies/domain/entities/movie.dart';
 import 'package:movies_app/movies/domain/repository/base_movies_repository.dart';
