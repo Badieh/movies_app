@@ -1,7 +1,9 @@
+import 'package:dartz/dartz.dart';
+import 'package:movies_app/core/failure/failure.dart';
 import 'package:movies_app/movies/domain/entities/movie.dart';
 
 abstract class BaseMoviesRepository {
-  Future<List<Movie>> getNowPlaying();
-  Future<List<Movie>> getPopularMovies();
-  Future<List<Movie>> getTopRatedMovies();
+  Future<Either<ServerFailure, List<Movie>>> getNowPlaying();
+  Future<Either<ServerFailure, List<Movie>>> getPopularMovies();
+  Future<Either<ServerFailure, List<Movie>>> getTopRatedMovies();
 }
