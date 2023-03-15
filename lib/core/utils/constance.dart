@@ -2,7 +2,7 @@ class AppConstance {
   //https://api.themoviedb.org/3/movie/now_playing?api_key=a9cbfdffecee81a9c5a7dbc65c6bf4e0
 
   static const apiKey = 'a9cbfdffecee81a9c5a7dbc65c6bf4e0';
-  static const baseUrl = 'https://www.themoviedb.org/3';
+  static const baseUrl = 'https://api.themoviedb.org/3';
 
   static const nowPlayingMoviesPath =
       '$baseUrl/movie/now_playing?api_key=$apiKey';
