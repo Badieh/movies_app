@@ -10,9 +10,9 @@ abstract class Failure extends Equatable {
 }
 
 class ServerFailure extends Failure {
-  ServerFailure(super.message);
+  const ServerFailure(super.message);
 }
 
 class DatabaseFailure extends Failure {
-  DatabaseFailure(super.message);
+  const DatabaseFailure(super.message);
 }
