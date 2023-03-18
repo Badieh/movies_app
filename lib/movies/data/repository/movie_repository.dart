@@ -43,8 +43,21 @@ class MovieRepository extends BaseMoviesRepository {
   }
 
   @override
-  Future<Either<Failure, MovieDetails>> getMovieDetails(MovieDetailsParameters parameters) async {
+  Future<Either<ServerFailure, MovieDetails>> getMovieDetails(
+      MovieDetailsParameters parameters) async {
     final result = await baseMovieRemoteDataSource.getMovieDetails(parameters);
+    try {
+      return Right(result);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(e.errorMessageModel.statusMessage));
+    }
+  }
+
+  @override
+  Future<Either<ServerFailure, List<Movie>>> getMovieRecommendations(
+      MovieDetailsParameters parameter) async {
+    final result =
+        await baseMovieRemoteDataSource.getMovieRecommendations(parameter);
     try {
       return Right(result);
     } on ServerException catch (e) {

@@ -9,5 +9,8 @@ abstract class BaseMoviesRepository {
   Future<Either<ServerFailure, List<Movie>>> getPopularMovies();
   Future<Either<ServerFailure, List<Movie>>> getTopRatedMovies();
 
-  Future<Either<Failure, MovieDetails>> getMovieDetails(MovieDetailsParameters parameters);
+  Future<Either<ServerFailure, MovieDetails>> getMovieDetails(
+      MovieDetailsParameters parameters);
+  Future<Either<ServerFailure, List<Movie>>> getMovieRecommendations(
+      MovieDetailsParameters parameter);
 }

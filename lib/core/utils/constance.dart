@@ -15,4 +15,6 @@ class AppConstance {
 
   static movieDetailsPath(String movieId) =>
       '$baseUrl/movie/$movieId?api_key=$apiKey';
+  static movieRecommendationPath(String movieId) =>
+      '$baseUrl/movie/$movieId/recommendations?api_key=$apiKey';
 }

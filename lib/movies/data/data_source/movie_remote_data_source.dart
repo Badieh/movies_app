@@ -12,6 +12,8 @@ abstract class BaseMovieRemoteDataSource {
   Future<List<MovieModel>> getPopularMovies();
   Future<List<MovieModel>> getTopRatedMovies();
   Future<MovieDetailsModel> getMovieDetails(MovieDetailsParameters parameters);
+  Future<List<MovieModel>> getMovieRecommendations(
+      MovieDetailsParameters parameters);
 }
 
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
@@ -62,6 +64,21 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
 
     if (response.statusCode == 200) {
       return MovieDetailsModel.fromJson(response.data);
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<MovieModel>> getMovieRecommendations(
+      MovieDetailsParameters parameters) async {
+    final response = await Dio()
+        .get(AppConstance.movieRecommendationPath(parameters.movieId));
+
+    if (response.statusCode == 200) {
+      return List<MovieModel>.from(
+          (response.data).map((e) => MovieModel.fromJson(e)));
     } else {
       throw ServerException(
           errorMessageModel: ErrorMessageModel.fromJson(response.data));
