@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/constance.dart';
 import 'package:movies_app/core/utils/dummy.dart';
 import 'package:movies_app/core/utils/enums.dart';
-import 'package:movies_app/movies/presentation/controllers/movie_bloc.dart';
-import 'package:movies_app/movies/presentation/controllers/movie_states.dart';
+import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_bloc.dart';
+import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_states.dart';
+
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedComponent extends StatelessWidget {
@@ -17,7 +18,6 @@ class TopRatedComponent extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.topRatedState != current.topRatedState,
       builder: (context, state) {
-
         switch (state.topRatedState) {
           case RequestState.loading:
             return const SizedBox(
