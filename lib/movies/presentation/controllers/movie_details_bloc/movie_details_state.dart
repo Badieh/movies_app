@@ -7,7 +7,7 @@ class MovieDetailsState extends Equatable {
 
   final String movieRecommendationMessage;
   final RequestState movieRecommendationState;
-  final List<Movie> movies;
+  final List<MovieRecommendation> movies;
 
   const MovieDetailsState({
     this.movieDetailsMessage = '',
@@ -24,7 +24,7 @@ class MovieDetailsState extends Equatable {
     MovieDetails? movieDetails,
     String? movieRecommendationMessage,
     RequestState? movieRecommendationState,
-    List<Movie>? movies,
+    List<MovieRecommendation>? movies,
   }) {
     return MovieDetailsState(
       movieDetailsMessage: movieDetailsMessage ?? this.movieDetailsMessage,

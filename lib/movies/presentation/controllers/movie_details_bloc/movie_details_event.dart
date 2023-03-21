@@ -7,13 +7,13 @@ abstract class MovieDetailsEvent extends Equatable {
 }
 
 class GetMovieDetailsEvent extends MovieDetailsEvent {
-  final String id;
+  final int id;
 
   const GetMovieDetailsEvent(this.id);
 }
 
 class GetMovieRecommendationsEvent extends MovieDetailsEvent {
-  final String id;
+  final int id;
 
   const GetMovieRecommendationsEvent(this.id);
 }
