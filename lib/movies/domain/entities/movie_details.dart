@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-abstract class MovieDetails extends Equatable {
+class MovieDetails extends Equatable {
   final String backdropPath;
-  final String id;
+  final int id;
   final String title;
   final String overview;
-  final String runtime;
-  final String voteAverage;
+  final int runtime;
+  final double voteAverage;
   final String voteCount;
   final String releaseDate;
   final List<Genre> genres;
@@ -37,8 +37,8 @@ abstract class MovieDetails extends Equatable {
       ];
 }
 
-abstract class Genre extends Equatable {
-  final String id;
+class Genre extends Equatable {
+  final int id;
   final String name;
 
   const Genre({required this.id, required this.name});

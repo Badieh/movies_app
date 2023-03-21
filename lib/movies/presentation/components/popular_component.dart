@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/constance.dart';
-import 'package:movies_app/core/utils/dummy.dart';
 import 'package:movies_app/core/utils/enums.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_bloc.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_states.dart';
@@ -16,13 +15,12 @@ class PopularComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBloc, MovieState>(
       buildWhen: (previous, current) =>
-      previous.popularState != current.popularState,
+          previous.popularState != current.popularState,
       builder: (context, state) {
         switch (state.popularState) {
           case RequestState.loading:
             return const SizedBox(
-              height: 400,
-                child: Center(child: CircularProgressIndicator()));
+                height: 400, child: Center(child: CircularProgressIndicator()));
           case RequestState.loaded:
             return Container(
               height: 170,
@@ -60,7 +58,7 @@ class PopularComponent extends StatelessWidget {
                     separatorBuilder: (context, index) => const SizedBox(
                           width: 8,
                         ),
-                    itemCount: moviesList.length),
+                    itemCount: state.popularMovies.length),
               ),
             );
           case RequestState.error:

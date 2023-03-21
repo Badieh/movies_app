@@ -19,7 +19,7 @@ class GetMovieDetailsUseCase
 }
 
 class MovieDetailsParameters extends Equatable {
-  final String movieId;
+  final int movieId;
 
   const MovieDetailsParameters({required this.movieId});
 

@@ -13,8 +13,8 @@ class AppConstance {
 
   static const topRatedMoviesPath = '$baseUrl/movie/top_rated?api_key=$apiKey';
 
-  static movieDetailsPath(String movieId) =>
+  static movieDetailsPath(int movieId) =>
       '$baseUrl/movie/$movieId?api_key=$apiKey';
-  static movieRecommendationPath(String movieId) =>
+  static movieRecommendationPath(int movieId) =>
       '$baseUrl/movie/$movieId/recommendations?api_key=$apiKey';
 }

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/enums.dart';
-import 'package:movies_app/movies/domain/entities/movie.dart';
 import 'package:movies_app/movies/domain/entities/movie_details.dart';
+import 'package:movies_app/movies/domain/entities/movie_recommendation.dart';
 import 'package:movies_app/movies/domain/use_cases/get_movie_details_usecase.dart';
 import 'package:movies_app/movies/domain/use_cases/get_movie_recommendations_usecase.dart';
 
@@ -38,7 +38,7 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
   FutureOr<void> _getMovieRecommendations(GetMovieRecommendationsEvent event,
       Emitter<MovieDetailsState> emit) async {
     final result = await getMovieRecommendationsUseCase(
-        MovieDetailsParameters(movieId: event.id));
+        MovieRecommendationsParameters(event.id));
 
     result.fold(
         (l) => state.copyWith(
