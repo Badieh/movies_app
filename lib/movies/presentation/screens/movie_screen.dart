@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/utils/app_strings.dart';
 
 import 'package:movies_app/movies/presentation/components/now_playing_component.dart';
 import 'package:movies_app/movies/presentation/components/popular_component.dart';
@@ -32,7 +33,7 @@ class MovieScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Popular',
+                        AppStrings.popular,
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       TextButton(
@@ -40,7 +41,7 @@ class MovieScreen extends StatelessWidget {
                         child: Row(
                           children: const [
                             Text(
-                              'SeeMore',
+                              AppStrings.seeMore,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
@@ -61,7 +62,7 @@ class MovieScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Top Rated',
+                        AppStrings.topRated,
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       TextButton(
@@ -69,7 +70,7 @@ class MovieScreen extends StatelessWidget {
                         child: Row(
                           children: const [
                             Text(
-                              'SeeMore',
+                              AppStrings.seeMore,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),

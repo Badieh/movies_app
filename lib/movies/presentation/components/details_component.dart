@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movies_app/core/utils/app_strings.dart';
 import 'package:movies_app/core/utils/enums.dart';
 import 'package:movies_app/movies/domain/entities/movie_details.dart';
 import 'package:movies_app/movies/presentation/components/loading_component.dart';
@@ -17,7 +18,8 @@ class DetailsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MovieDetailsBloc, MovieDetailsState>(
-      buildWhen: (previous, current) => previous.movieDetailsState != current.movieDetailsState,
+      buildWhen: (previous, current) =>
+          previous.movieDetailsState != current.movieDetailsState,
       builder: (context, state) {
         switch (state.movieDetailsState) {
           case RequestState.loading:
@@ -93,7 +95,8 @@ class DetailsComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Text(
-                                    state.movieDetails!.releaseDate.split('-')[0],
+                                    state.movieDetails!.releaseDate
+                                        .split('-')[0],
                                     style: const TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w500,
@@ -155,7 +158,7 @@ class DetailsComponent extends StatelessWidget {
                             ),
                             const SizedBox(height: 8.0),
                             Text(
-                              'Genres: ${_showGenres(state.movieDetails!.genres)}',
+                              '${AppStrings.genres} ${_showGenres(state.movieDetails!.genres)}',
                               style: const TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12.0,
@@ -174,9 +177,9 @@ class DetailsComponent extends StatelessWidget {
                       child: FadeInUp(
                         from: 20,
                         duration: const Duration(milliseconds: 500),
-                        child: Text(
-                          'More like this'.toUpperCase(),
-                          style: const TextStyle(
+                        child: const Text(
+                          AppStrings.moreLikeThis,
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w500,
@@ -196,7 +199,6 @@ class DetailsComponent extends StatelessWidget {
         }
       },
     );
-
   }
 
   String _showGenres(List<Genre> genres) {
