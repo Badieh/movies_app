@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/constance.dart';
 import 'package:movies_app/core/utils/enums.dart';
+import 'package:movies_app/movies/presentation/components/loading_component.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_bloc.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_states.dart';
 
@@ -19,8 +20,7 @@ class PopularComponent extends StatelessWidget {
       builder: (context, state) {
         switch (state.popularState) {
           case RequestState.loading:
-            return const SizedBox(
-                height: 400, child: Center(child: CircularProgressIndicator()));
+            return const LoadingComponent();
           case RequestState.loaded:
             return Container(
               height: 170,

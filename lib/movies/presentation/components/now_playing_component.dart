@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/constance.dart';
 import 'package:movies_app/core/utils/enums.dart';
+import 'package:movies_app/movies/presentation/components/loading_component.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_bloc.dart';
 import 'package:movies_app/movies/presentation/controllers/movie_bloc/movie_states.dart';
+import 'package:movies_app/movies/presentation/screens/movie_detail_screen.dart';
 
 class NowPlayingComponent extends StatelessWidget {
   const NowPlayingComponent({Key? key}) : super(key: key);
@@ -18,8 +20,7 @@ class NowPlayingComponent extends StatelessWidget {
       builder: (context, state) {
         switch (state.nowPlayingState) {
           case RequestState.loading:
-            return const SizedBox(
-                height: 400, child: Center(child: CircularProgressIndicator()));
+            return const LoadingComponent();
           case RequestState.loaded:
             return CarouselSlider(
               options: CarouselOptions(
@@ -29,7 +30,11 @@ class NowPlayingComponent extends StatelessWidget {
               items: state.nowPlayingMovies.map((e) {
                 return GestureDetector(
                   onTap: () {
-                    print('test');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                MovieDetailScreen(id: e.id)));
                   },
                   child: Stack(
                     children: [

@@ -23,7 +23,7 @@ class MovieDetailsModel extends MovieDetails {
         voteCount: json['vote_count'],
         releaseDate: json['release_date'],
         genres: List<GenresModel>.from(
-            json['genre'].map((e) => GenresModel.fromJson(e))));
+            json['genres'].map((e) => GenresModel.fromJson(e))));
   }
 }
 
